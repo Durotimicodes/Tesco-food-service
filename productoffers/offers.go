@@ -20,7 +20,7 @@ func BuyOneGetOneFree(prodQuantity uint, prodCode string, prodPrice float64) mod
 
 	//checks
 	for i := 0; i < len(ProductsOnOffer); i++ {
-		//if product is found in the list of offers and the prices are similar add an extra one on each product else just return product price
+		//if product is found on the list of special get-one offers and the prices are similar, add an extra one on each product else just return product price
 		if prodName == ProductsOnOffer[i] && prodPrice == pPrice {
 			newProductQuantity = prodQuantity + prodQuantity
 			sOffer = true
@@ -32,6 +32,7 @@ func BuyOneGetOneFree(prodQuantity uint, prodCode string, prodPrice float64) mod
 	//populate the values with product model
 	prd := models.Product{
 		ProductId:        productID,
+		ProductPrice:     pPrice,
 		ProductQuantity:  newProductQuantity,
 		ProductCode:      prodCode,
 		HaveSpecialOffer: sOffer,
