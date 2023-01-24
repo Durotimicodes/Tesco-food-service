@@ -63,7 +63,7 @@ type SpecificationSettings struct{}
 func (s *SpecificationSettings) CheckSpecifications(product []models.Product, spec models.OfferSpecification) []models.Product {
 	result := make([]models.Product, 0)
 
-	//get Product name and Product Price
+	//check if product matches specification
 	for a, b := range product {
 		switch {
 		case spec.IsSatisfied(&b) && b.HaveSpecialOffer:

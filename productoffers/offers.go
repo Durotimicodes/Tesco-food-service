@@ -57,6 +57,7 @@ func DiscountOnAProduct(prodQuantity uint, prodCode string, prodPrice float64) m
 		}
 	}
 
+	//get discount percentage
 	for k, v := range DiscountOnProduct {
 		if k == prodName {
 			discountPercentage = v
@@ -77,7 +78,7 @@ func DiscountOnAProduct(prodQuantity uint, prodCode string, prodPrice float64) m
 
 	}
 
-	//populate the values with product model
+	//populate the values into object product model
 	finalProduct := models.Product{
 		ProductId:        productID,
 		ProductPrice:     newProductPrice,

@@ -2,14 +2,12 @@ package productoffers
 
 // GetProductNameByCode gets the product name by the product code
 func GetProductNameByCode(productCode string) string {
-
 	for k, v := range ProductNameAndCode {
 		//if you can find product code return the product name else return out of stock
 		if v == productCode {
 			return k
 		}
 	}
-
 	return "Product out of stock"
 }
 
@@ -34,17 +32,3 @@ func GetProductBonusQuanityByCode(productCode string) uint {
 	return 0
 }
 
-// func CheckDiscountOffers(prod []models.Product) bool {
-// 	// check for special offers
-// 	for _, v := range prod {
-// 		if v.HaveDiscount {
-// 			return true
-// 		}
-// 	}
-// 	return false
-// }
-
-// TODO
-// func GetProductDiscountByCode(productCode string) uint {
-
-// }
