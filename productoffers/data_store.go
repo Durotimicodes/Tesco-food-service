@@ -1,7 +1,7 @@
 package productoffers
 
 // in-memory-data-store
-// key value pair for products and their corrensponding prices
+// key value pair for products and their corrensponding prices : flexible regarding our pricing rules.
 var ProductNameAndPrice = map[float64]string{
 	3.11:  "FR1",
 	5.00:  "SR1",
@@ -20,7 +20,7 @@ var SpecialOffers = map[string]uint{
 	"Fruit tea": 1,
 }
 
-// key value pair to store product discounts
+// key value pair to store product discounts : flexible regarding our discount rules.
 var DiscountOnProduct = map[string]float64{
 	"Strawberries": 0.10,
 }
