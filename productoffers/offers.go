@@ -68,8 +68,10 @@ func DiscountOnAProduct(prodQuantity uint, prodCode string, prodPrice float64) m
 	pPrice := GetProductPriceByCode(prodCode)
 
 	for i := 0; i < len(ProductsOnDiscountOffer); i++ {
-		//if product is found on the list of discount offers and the prices are similar, add a discount on each product else just return product price
-		if prodName == ProductsOnDiscountOffer[i] && prodPrice == pPrice {
+		/*if product is found on the list of discount offers, the prices are similar and ordered quantity purchased is 
+		 greater or equal to 3, add a discount on each product else just return product price
+		 */
+		if prodName == ProductsOnDiscountOffer[i] && prodPrice == pPrice && prodQuantity >= 3 {
 			reduction := pPrice * discountPercentage
 			newProductPrice = pPrice - reduction
 		} else {

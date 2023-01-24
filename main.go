@@ -31,7 +31,7 @@ func main() {
 	p2 := models.Product{
 		ProductId:        1,
 		ProductCode:      "SR1",
-		ProductQuantity:  2,
+		ProductQuantity:  3,
 		ProductPrice:     5.00,
 		ProductDiscount:  0,
 		HaveDiscount:     true,
