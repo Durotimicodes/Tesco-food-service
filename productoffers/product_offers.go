@@ -64,21 +64,22 @@ func (s *SpecificationSettings) CheckSpecifications(product []models.Product, sp
 	result := make([]models.Product, 0)
 
 	//get Product name and Product Price
-	for i, v := range product {
-		if spec.IsSatisfied(&v) {
+	for a, b := range product {
+		switch {
+		case spec.IsSatisfied(&b) && b.HaveSpecialOffer:
 			//if spec is satisfied implement the Buy-One-Get-One function
-			xtraProduct := BuyOneGetOneFree(v.ProductQuantity, v.ProductCode, v.ProductPrice)
+			xtraProduct := BuyOneGetOneFree(b.ProductQuantity, b.ProductCode, b.ProductPrice)
 			result = append(result, xtraProduct)
-		}
-		if spec.IsSatisfied(&v) {
+		case spec.IsSatisfied(&b) && b.HaveDiscount:
 			//if spec is satisfied implement the Discount Product function
-			discounProduct := DiscountOnAProduct(v.ProductQuantity, v.ProductCode, v.ProductPrice)
+			discounProduct := DiscountOnAProduct(b.ProductQuantity, b.ProductCode, b.ProductPrice)
 			result = append(result, discounProduct)
-		} else {
+		default:
 			//else just return the product list
-			result = append(result, product[i])
+			result = append(result, product[a])
 		}
 	}
+
 	return result
 
 }

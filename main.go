@@ -15,7 +15,7 @@ func main() {
 		ProductPrice:     3.11,
 		ProductDiscount:  0,
 		HaveDiscount:     false,
-		HaveSpecialOffer: false,
+		HaveSpecialOffer: true,
 	}
 
 	p3 := models.Product{
@@ -24,7 +24,7 @@ func main() {
 		ProductQuantity:  10,
 		ProductPrice:     11.23,
 		ProductDiscount:  0,
-		HaveDiscount:     false,
+		HaveDiscount:     true,
 		HaveSpecialOffer: false,
 	}
 
@@ -34,17 +34,20 @@ func main() {
 		ProductQuantity:  2,
 		ProductPrice:     5.00,
 		ProductDiscount:  0,
-		HaveDiscount:     false,
+		HaveDiscount:     true,
 		HaveSpecialOffer: false,
 	}
 
 	prod := []models.Product{p1, p2, p3}
 
-	getOneFreeSpec := productoffers.ByOneGetOneSpecification{Product: prod}
+	// getOneFreeSpec := productoffers.ByOneGetOneSpecification{Product: prod}
+	discountSpec := productoffers.ProductDiscountSpecification{Product: prod}
 
 	ps := productoffers.SpecificationSettings{}
+	var listOfProducts []models.Product
 
-	for _, v := range ps.CheckSpecifications(prod, &getOneFreeSpec) {
-		fmt.Printf("%v\n", v)
+	for _, v := range ps.CheckSpecifications(prod, &discountSpec) {
+		listOfProducts = append(listOfProducts, v)
 	}
+	fmt.Println(listOfProducts)
 }

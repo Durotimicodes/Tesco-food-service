@@ -34,6 +34,16 @@ func GetProductBonusQuanityByCode(productCode string) uint {
 	return 0
 }
 
+// func CheckDiscountOffers(prod []models.Product) bool {
+// 	// check for special offers
+// 	for _, v := range prod {
+// 		if v.HaveDiscount {
+// 			return true
+// 		}
+// 	}
+// 	return false
+// }
+
 // TODO
 // func GetProductDiscountByCode(productCode string) uint {
 
