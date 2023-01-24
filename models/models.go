@@ -27,3 +27,13 @@ type CheckoutBill struct {
 }
 
 
+//CheckBuyOneGetOneFree settings
+type CheckBuyOneGetOneFree struct{}
+
+
+// offer specification interface
+type OfferSpecification interface {
+	IsSatisfied(productes *Product) bool
+}
+
+
