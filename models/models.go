@@ -1,6 +1,5 @@
 package models
 
-
 // custom data types
 type ProductCode map[string]string
 
@@ -18,21 +17,18 @@ type Product struct {
 	HaveSpecialOffer bool
 }
 
-//a checkout bill type
+// a checkout bill type
 type CheckoutBill struct {
-	OrderId           uint
-	PurchasedProducts []Product
-	TotalPrice        float64
+	TypesOfItemScanned   uint
+	PurchasedProducts    []Product
+	TotalQuantityScanned uint
+	TotalPrice           float64
 }
 
-
-//CheckBuyOneGetOneFree settings
+// CheckBuyOneGetOneFree settings
 type CheckBuyOneGetOneFree struct{}
-
 
 // offer specification interface
 type OfferSpecification interface {
 	IsSatisfied(productes *Product) bool
 }
-
-

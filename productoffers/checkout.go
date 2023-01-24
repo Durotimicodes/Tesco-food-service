@@ -7,20 +7,18 @@ import (
 	"github.com/moretonb/moj-durotimicodes-challenge/models"
 )
 
-/*checkout can scan items
- */
-
+// checkout can scan items
 func CheckOutProducts(products []models.Product) models.CheckoutBill {
 
-	//a checkout bill
-	// var checkoutBill models.CheckoutBill
-	var id uint
+	var numOfItemScanned uint
 	var totalPrice float64
 
 	//scan items
 	for i, _ := range products {
 		if len(products) > 1 {
-			id = uint(i)
+			numOfItemScanned = 1
+			i++
+			numOfItemScanned = uint(i)
 		}
 	}
 
@@ -29,13 +27,21 @@ func CheckOutProducts(products []models.Product) models.CheckoutBill {
 		log.Fatalf("%v Error is calculating total Price:", err)
 	}
 
-	checkOut := models.CheckoutBill{
-		OrderId:           id,
-		PurchasedProducts: products,
-		TotalPrice:        totalPrice,
+	totalScannedItems, err := GetTotalQuantitySoldProducts(products)
+	if err != nil {
+		log.Fatalf("%v Error is calculating total quantity:", err)
 	}
 
-	fmt.Println("CHECKOUT", checkOut)
+	checkOut := models.CheckoutBill{
+		TypesOfItemScanned:   numOfItemScanned,
+		PurchasedProducts:    products,
+		TotalQuantityScanned: totalScannedItems,
+		TotalPrice:           totalPrice,
+	}
+
+	fmt.Printf("THANK YOU FOR SHOPPING AT THE COOP ☺️\n")
+	fmt.Println("-----Receipt-----")
+	fmt.Printf("Types of Item Product Scanned : %d\nProduct Purchased : %v\nTotal Products Sold : %d\nTotal Price : %v Pounds\n ", numOfItemScanned, products, totalScannedItems, totalPrice)
 
 	return checkOut
 }

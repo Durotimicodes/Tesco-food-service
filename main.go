@@ -1,8 +1,6 @@
 package main
 
 import (
-	"fmt"
-
 	"github.com/moretonb/moj-durotimicodes-challenge/models"
 	"github.com/moretonb/moj-durotimicodes-challenge/productoffers"
 )
@@ -45,14 +43,12 @@ func main() {
 	// getOneFreeSpec := productoffers.ByOneGetOneSpecification{Product: prod}
 	discountSpec := productoffers.ProductDiscountSpecification{Product: prod}
 
-	
 	ps := productoffers.SpecificationSettings{}
 	var listOfProducts []models.Product
 
 	for _, v := range ps.CheckSpecifications(prod, &discountSpec) {
 		listOfProducts = append(listOfProducts, v)
 	}
-	fmt.Println(listOfProducts)
 
 	//implementing checkout
 	productoffers.CheckOutProducts(listOfProducts)
