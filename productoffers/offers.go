@@ -43,7 +43,7 @@ func BuyOneGetOneFree(prodQuantity uint, prodCode string, prodPrice float64) mod
 }
 
 // DiscountOnAProduct takes in a product code, quantity and price and checks if product has a discount offer
-func DiscountOnAProduct(prodQuantity uint, prodCode string, prodPrice float64) bool {
+func DiscountOnAProduct(prodQuantity uint, prodCode string, prodPrice float64) models.Product {
 
-	return false
+	return models.Product{}
 }
