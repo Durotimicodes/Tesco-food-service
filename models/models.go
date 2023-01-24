@@ -1,1 +1,29 @@
 package models
+
+
+// custom data types
+type ProductCode map[string]string
+
+type ProductAndPrice map[string]float64
+
+// a struct product type
+type Product struct {
+	ProductId        uint
+	ProductName      string
+	ProductCode      string
+	ProductPrice     float64
+	ProductQuantity  uint
+	ProductDiscount  float32
+	HaveDiscount     bool
+	HaveSpecialOffer bool
+}
+
+//a checkout bill type
+type CheckoutBill struct {
+	OrderId           uint
+	PurchasedProducts []Product
+	TotalQuanitySold  uint
+	TotalPrice        float64
+}
+
+
