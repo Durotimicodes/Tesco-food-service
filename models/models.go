@@ -22,7 +22,6 @@ type Product struct {
 type CheckoutBill struct {
 	OrderId           uint
 	PurchasedProducts []Product
-	TotalQuanitySold  uint
 	TotalPrice        float64
 }
 

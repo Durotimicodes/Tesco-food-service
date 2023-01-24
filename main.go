@@ -38,11 +38,14 @@ func main() {
 		HaveSpecialOffer: false,
 	}
 
+	//a group/slice of products
 	prod := []models.Product{p1, p2, p3}
 
+	//specification checker
 	// getOneFreeSpec := productoffers.ByOneGetOneSpecification{Product: prod}
 	discountSpec := productoffers.ProductDiscountSpecification{Product: prod}
 
+	
 	ps := productoffers.SpecificationSettings{}
 	var listOfProducts []models.Product
 
@@ -50,4 +53,7 @@ func main() {
 		listOfProducts = append(listOfProducts, v)
 	}
 	fmt.Println(listOfProducts)
+
+	//implementing checkout
+	productoffers.CheckOutProducts(listOfProducts)
 }

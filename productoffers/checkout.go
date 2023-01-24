@@ -1,13 +1,41 @@
 package productoffers
 
-import "github.com/moretonb/moj-durotimicodes-challenge/models"
+import (
+	"fmt"
+	"log"
 
-/*checkout can scan items in any order, and because the CEO and COO
-change their minds often, it needs to be flexible regarding our
-pricing rules.
-*/
+	"github.com/moretonb/moj-durotimicodes-challenge/models"
+)
+
+/*checkout can scan items
+ */
 
 func CheckOutProducts(products []models.Product) models.CheckoutBill {
 
-	return models.CheckoutBill{}
+	//a checkout bill
+	// var checkoutBill models.CheckoutBill
+	var id uint
+	var totalPrice float64
+
+	//scan items
+	for i, _ := range products {
+		if len(products) > 1 {
+			id = uint(i)
+		}
+	}
+
+	totalPrice, err := GetTotalPriceOfProduct(products)
+	if err != nil {
+		log.Fatalf("%v Error is calculating total Price:", err)
+	}
+
+	checkOut := models.CheckoutBill{
+		OrderId:           id,
+		PurchasedProducts: products,
+		TotalPrice:        totalPrice,
+	}
+
+	fmt.Println("CHECKOUT", checkOut)
+
+	return checkOut
 }
