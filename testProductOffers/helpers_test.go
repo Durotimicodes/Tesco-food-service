@@ -126,7 +126,7 @@ func TestGetTotalQuantitySoldProducts(t *testing.T) {
 
 }
 
-func Test_GetTotalPriceOfProduct(t *testing.T) {
+func TestGetTotalPriceOfProduct(t *testing.T) {
 
 	//Product one
 	p1 := models.Product{
