@@ -8,7 +8,7 @@ import (
 )
 
 // checkout can scan items
-func CheckOutProducts(products []models.Product) models.CheckoutBill {
+func CheckOutProducts(products []models.Product) (models.CheckoutBill, float64, uint) {
 
 	var numOfItemScanned uint
 	var totalPrice float64
@@ -43,5 +43,5 @@ func CheckOutProducts(products []models.Product) models.CheckoutBill {
 	fmt.Println("-----Receipt-----")
 	fmt.Printf("Types of Item Product Scanned : %d\nProduct Purchased : %v\nTotal Products Sold : %d\nTotal Price : %v Pounds\n ", numOfItemScanned, products, totalScannedItems, totalPrice)
 
-	return checkOut
+	return checkOut, totalPrice, totalScannedItems
 }

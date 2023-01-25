@@ -7,7 +7,7 @@ import (
 	"github.com/moretonb/moj-durotimicodes-challenge/productoffers"
 )
 
-func Test_BuyOneGetOneFree(t *testing.T) {
+func TestBuyOneGetOneFree(t *testing.T) {
 
 	testSpecialOffer := []struct {
 		testName string
@@ -30,7 +30,7 @@ func Test_BuyOneGetOneFree(t *testing.T) {
 
 }
 
-func Test_DiscountOnAProduct(t *testing.T) {
+func TestDiscountOnAProduct(t *testing.T) {
 
 	testSpecialOffer := []struct {
 		testName string
