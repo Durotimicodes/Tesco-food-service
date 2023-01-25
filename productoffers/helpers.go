@@ -10,7 +10,7 @@ func GetProductNameByCode(productCode string) string {
 			return k
 		}
 	}
-	return "Product out of stock"
+	return "Sorry do not have this Product"
 }
 
 // GetProductPriceByCode gets the product price by the product code
@@ -24,15 +24,6 @@ func GetProductPriceByCode(productCode string) float64 {
 	return 0
 }
 
-// GetProductionBonusQuantityByCode get the additional bonus quantity added to product
-func GetProductBonusQuanityByCode(productCode string) uint {
-	for k, v := range SpecialOffers {
-		if k == productCode {
-			return v
-		}
-	}
-	return 0
-}
 
 // GetTotalQuantitySoldProducts gets the total product sold
 func GetTotalQuantitySoldProducts(product []models.Product) (uint, error) {
