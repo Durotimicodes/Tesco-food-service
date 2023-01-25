@@ -6,6 +6,8 @@ import (
 )
 
 func main() {
+
+	//Product one
 	p1 := models.Product{
 		ProductId:        1,
 		ProductCode:      "FR1",
@@ -16,6 +18,7 @@ func main() {
 		HaveSpecialOffer: true,
 	}
 
+	//Product two
 	p3 := models.Product{
 		ProductId:        1,
 		ProductCode:      "CF1",
@@ -26,6 +29,7 @@ func main() {
 		HaveSpecialOffer: false,
 	}
 
+	//Product three
 	p2 := models.Product{
 		ProductId:        1,
 		ProductCode:      "SR1",
@@ -43,9 +47,11 @@ func main() {
 	// getOneFreeSpec := productoffers.ByOneGetOneSpecification{Product: prod}
 	discountSpec := productoffers.ProductDiscountSpecification{Product: prod}
 
+	//product spec
 	ps := productoffers.SpecificationSettings{}
 	var listOfProducts []models.Product
 
+	//iterate products over check specfication 
 	for _, v := range ps.CheckSpecifications(prod, &discountSpec) {
 		listOfProducts = append(listOfProducts, v)
 	}
