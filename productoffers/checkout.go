@@ -10,15 +10,15 @@ import (
 // checkout can scan items
 func CheckOutProducts(products []models.Product) (models.CheckoutBill, float64, uint) {
 
-	var numOfItemScanned uint
+	var typeOfItemsScanned uint
 	var totalPrice float64
 
 	//scan items
 	for i, _ := range products {
 		if len(products) > 1 {
-			numOfItemScanned = 1
+			typeOfItemsScanned = 1
 			i++
-			numOfItemScanned = uint(i)
+			typeOfItemsScanned = uint(i)
 		}
 	}
 
@@ -33,15 +33,14 @@ func CheckOutProducts(products []models.Product) (models.CheckoutBill, float64, 
 	}
 
 	checkOut := models.CheckoutBill{
-		TypesOfItemScanned:   numOfItemScanned,
+		TypesOfItemScanned:   typeOfItemsScanned,
 		PurchasedProducts:    products,
 		TotalQuantityScanned: totalScannedItems,
 		TotalPrice:           totalPrice,
 	}
 
-	fmt.Printf("THANK YOU FOR SHOPPING AT THE COOP ☺️\n")
-	fmt.Println("-----Receipt-----")
-	fmt.Printf("Types of Item Product Scanned : %d\nProduct Purchased : %v\nTotal Products Sold : %d\nTotal Price : %v Pounds\n ", numOfItemScanned, products, totalScannedItems, totalPrice)
+	fmt.Println("THANK YOU FOR SHOPPING AT THE COOP ☺️\n -----Receipt-----")
+	fmt.Printf("Types of Item Product Scanned : %d\nList Of Products Purchased : %v\nTotal Products Sold : %d\nTotal Price : %v Pounds\n ", typeOfItemsScanned, products, totalScannedItems, totalPrice)
 
 	return checkOut, totalPrice, totalScannedItems
 }

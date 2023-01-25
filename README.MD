@@ -26,7 +26,7 @@ go mod tidy
 ```sh
 go run main.go
 ```
-- Check test cases : invoke test cases by running this command on the terminal 
+- Check test cases : cd into "testProductOffers" folder then invoke test cases by running this command on the terminal 
 ```sh 
 go test
 ```
@@ -34,30 +34,32 @@ go test
 ```sh
 go test -coverprofile=c.out
 ```
+- Edit product parameters with the main function located in main.go file
+
 ## Documentation
 
 ### Approach To Solving The Challenge
-- Following software development best practices, started the design by creating different packages/folders to seperate concerns.
+- Following software development best practices, i started the design by creating different packages/folders to seperate concerns.
 
-- Designed the fundamental models/structure, custom types and data stores for the application. For example, Product and CheckoutBill structs in the models package.
+- Designed the fundamental models/structures, custom types and data-stores for the application. For example, Product and CheckoutBill structs in the models package.
 
-- Since i have few products i decided to store data in-memory using data-structures like Maps and slice because they are both extensible and unique for various cases. For instance, although data in a map returns a random order the key remains unique.  
+- Since i have few products, i decided to store data in-memory using data-structures like Map and Slice mainly because they are both extensible and unique for various data manipulations. For instance, although datas in a map returns a random order an item can be gotten by the key because it remains unique.  
 
 - Declared the basic functions in accordance with the user-story and wrote minimal unit tests that failed.
 
-- To make the program easy to read and reduce the complexity of functions and methods i built easy to use helper functions.
+- To make the program easy to read and reduce the complexity of functions and methods, i built easy to use helper functions.
 
 - Implemented the buy-one-get-one free and discount on product functions.
 
-- To enable extension/flexibility of the methods i used the (OPEN CLOSED DESIGN PATTERN PRINCIPLE). As such, the method is opened for extension should incase the CEO or COO change their mind but closed for modification. 
+- To enable extension/flexibility of the methods, i used the *OPEN CLOSED DESIGN PATTERN PRINCIPLE*. As such, the method is opened for extension but closed for modification should incase the CEO or COO change their mind.
 
-- Created (SpecificationSettings structure) that can hold any further feature the CEO or COO may require in the future.
+- Created a (SpecificationSettings structure) that can hold any further feature(s) or setting(s) the CEO or COO may require in the future.
 
 - To implement the checkout function, i declared helper functions such as *GetTotalPriceOfProduct* and *GetTotalQuantitySoldProducts* and checked for errors should in case an error occurs while checking-out.
 
 - Printed out the bill / receipt to standout.
 
-- Build test cases
+- Build test cases.
 
 ### Main Package
 ```sh

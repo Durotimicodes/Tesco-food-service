@@ -1,6 +1,10 @@
 package productoffers
 
-import "github.com/moretonb/moj-durotimicodes-challenge/models"
+import (
+	"math"
+
+	"github.com/moretonb/moj-durotimicodes-challenge/models"
+)
 
 // GetProductNameByCode gets the product name by the product code
 func GetProductNameByCode(productCode string) string {
@@ -21,9 +25,8 @@ func GetProductPriceByCode(productCode string) float64 {
 			return k
 		}
 	}
-	return 0
+	return 0.00
 }
-
 
 // GetTotalQuantitySoldProducts gets the total product sold
 func GetTotalQuantitySoldProducts(product []models.Product) (uint, error) {
@@ -37,7 +40,7 @@ func GetTotalQuantitySoldProducts(product []models.Product) (uint, error) {
 		}
 	}
 
-	return totalQuantitySold, nil
+	return uint(math.Round(float64(totalQuantitySold))), nil
 
 }
 

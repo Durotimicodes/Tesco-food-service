@@ -16,40 +16,36 @@ func TestCheckOutProducts(t *testing.T) {
 		ProductCode:      "FR1",
 		ProductQuantity:  10,
 		ProductPrice:     3.11,
-		ProductDiscount:  0,
 		HaveDiscount:     true,
 		HaveSpecialOffer: true,
 	}
 
 	//Product two
 	p2 := models.Product{
-		ProductId:        1,
+		ProductId:        2,
 		ProductCode:      "SR1",
 		ProductQuantity:  3,
 		ProductPrice:     5.00,
-		ProductDiscount:  0,
 		HaveDiscount:     true,
 		HaveSpecialOffer: true,
 	}
 
 	//Product three
 	p3 := models.Product{
-		ProductId:        1,
+		ProductId:        3,
 		ProductCode:      "CF1",
 		ProductQuantity:  14,
 		ProductPrice:     11.23,
-		ProductDiscount:  0,
 		HaveDiscount:     true,
 		HaveSpecialOffer: false,
 	}
 
 	//Product four
 	p4 := models.Product{
-		ProductId:        1,
+		ProductId:        4,
 		ProductCode:      "CF1",
 		ProductQuantity:  0,
 		ProductPrice:     11.23,
-		ProductDiscount:  0,
 		HaveDiscount:     true,
 		HaveSpecialOffer: false,
 	}
@@ -66,7 +62,7 @@ func TestCheckOutProducts(t *testing.T) {
 		wantTwo  uint
 	}{
 
-		{testName: "Test-Case-One", input: prodOne, wantOne: 46.099999999999994, wantTwo: 2},
+		{testName: "Test-Case-One", input: prodOne, wantOne:  46.099999999999994, wantTwo: 2},
 		{testName: "Test-Case-Two", input: prodTwo, wantOne: 172.22, wantTwo: 2},
 		{testName: "Test-Case-Three", input: prodThree, wantOne: 0, wantTwo: 1},
 	}

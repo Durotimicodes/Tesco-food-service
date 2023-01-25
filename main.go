@@ -13,7 +13,6 @@ func main() {
 		ProductCode:      "FR1",
 		ProductQuantity:  10,
 		ProductPrice:     3.11,
-		ProductDiscount:  0,
 		HaveDiscount:     false,
 		HaveSpecialOffer: true,
 	}
@@ -24,7 +23,6 @@ func main() {
 		ProductCode:      "CF1",
 		ProductQuantity:  10,
 		ProductPrice:     11.23,
-		ProductDiscount:  0,
 		HaveDiscount:     true,
 		HaveSpecialOffer: false,
 	}
@@ -35,7 +33,6 @@ func main() {
 		ProductCode:      "SR1",
 		ProductQuantity:  3,
 		ProductPrice:     5.00,
-		ProductDiscount:  0,
 		HaveDiscount:     true,
 		HaveSpecialOffer: false,
 	}

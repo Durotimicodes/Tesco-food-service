@@ -68,11 +68,11 @@ func (s *SpecificationSettings) CheckSpecifications(product []models.Product, sp
 		switch {
 		case spec.IsSatisfied(&b) && b.HaveSpecialOffer:
 			//if spec is satisfied implement the Buy-One-Get-One function
-			xtraProduct := BuyOneGetOneFree(b.ProductQuantity, b.ProductCode, b.ProductPrice)
+			xtraProduct,_,_ := BuyOneGetOneFree(b.ProductQuantity, b.ProductCode, b.ProductPrice)
 			result = append(result, xtraProduct)
 		case spec.IsSatisfied(&b) && b.HaveDiscount:
 			//if spec is satisfied implement the Discount Product function
-			discounProduct := DiscountOnAProduct(b.ProductQuantity, b.ProductCode, b.ProductPrice)
+			discounProduct,_,_ := DiscountOnAProduct(b.ProductQuantity, b.ProductCode, b.ProductPrice)
 			result = append(result, discounProduct)
 		default:
 			//else just return the product list

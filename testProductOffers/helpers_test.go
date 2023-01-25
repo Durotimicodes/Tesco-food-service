@@ -63,40 +63,36 @@ func TestGetTotalQuantitySoldProducts(t *testing.T) {
 		ProductCode:      "FR1",
 		ProductQuantity:  10,
 		ProductPrice:     3.11,
-		ProductDiscount:  0,
 		HaveDiscount:     false,
 		HaveSpecialOffer: true,
 	}
 
 	//Product two
 	p2 := models.Product{
-		ProductId:        1,
+		ProductId:        2,
 		ProductCode:      "SR1",
 		ProductQuantity:  3,
 		ProductPrice:     5.00,
-		ProductDiscount:  0,
 		HaveDiscount:     true,
 		HaveSpecialOffer: false,
 	}
 
 	//Product three
 	p3 := models.Product{
-		ProductId:        1,
+		ProductId:        3,
 		ProductCode:      "CF1",
 		ProductQuantity:  14,
 		ProductPrice:     11.23,
-		ProductDiscount:  0,
 		HaveDiscount:     true,
 		HaveSpecialOffer: false,
 	}
 
 	//Product four
 	p4 := models.Product{
-		ProductId:        1,
+		ProductId:        4,
 		ProductCode:      "CF1",
 		ProductQuantity:  0,
 		ProductPrice:     11.23,
-		ProductDiscount:  0,
 		HaveDiscount:     true,
 		HaveSpecialOffer: false,
 	}
@@ -134,40 +130,36 @@ func TestGetTotalPriceOfProduct(t *testing.T) {
 		ProductCode:      "FR1",
 		ProductQuantity:  10,
 		ProductPrice:     3.11,
-		ProductDiscount:  0,
 		HaveDiscount:     true,
 		HaveSpecialOffer: true,
 	}
 
 	//Product two
 	p2 := models.Product{
-		ProductId:        1,
+		ProductId:        2,
 		ProductCode:      "SR1",
 		ProductQuantity:  3,
 		ProductPrice:     5.00,
-		ProductDiscount:  0,
 		HaveDiscount:     true,
 		HaveSpecialOffer: true,
 	}
 
 	//Product three
 	p3 := models.Product{
-		ProductId:        1,
+		ProductId:        3,
 		ProductCode:      "CF1",
 		ProductQuantity:  14,
 		ProductPrice:     11.23,
-		ProductDiscount:  0,
 		HaveDiscount:     true,
 		HaveSpecialOffer: false,
 	}
 
 	//Product four
 	p4 := models.Product{
-		ProductId:        1,
+		ProductId:        4,
 		ProductCode:      "CF1",
 		ProductQuantity:  0,
 		ProductPrice:     11.23,
-		ProductDiscount:  0,
 		HaveDiscount:     true,
 		HaveSpecialOffer: false,
 	}

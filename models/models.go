@@ -12,7 +12,6 @@ type Product struct {
 	ProductCode      string
 	ProductPrice     float64
 	ProductQuantity  uint
-	ProductDiscount  float32
 	HaveDiscount     bool
 	HaveSpecialOffer bool
 }
