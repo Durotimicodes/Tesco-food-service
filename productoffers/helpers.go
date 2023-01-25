@@ -1,8 +1,6 @@
 package productoffers
 
 import (
-	"math"
-
 	"github.com/moretonb/moj-durotimicodes-challenge/models"
 )
 
@@ -40,7 +38,7 @@ func GetTotalQuantitySoldProducts(product []models.Product) (uint, error) {
 		}
 	}
 
-	return uint(math.Round(float64(totalQuantitySold))), nil
+	return totalQuantitySold, nil
 
 }
 
