@@ -22,11 +22,11 @@ $ git clone https://github.com/moretonb/moj-durotimicodes-challenge.git
 ```sh
 go mod tidy
 ```
-- Compile the main application by running this command in the terminal
+- Compile the main application by running this command on the terminal
 ```sh
 go run main.go
 ```
-- Check test cases : invoke test cases by running this command in the terminal 
+- Check test cases : invoke test cases by running this command on the terminal 
 ```sh 
 go test
 ```
