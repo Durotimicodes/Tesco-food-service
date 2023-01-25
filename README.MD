@@ -105,7 +105,7 @@ func main() {
 
 	//specification checker
 
-	// getOneFreeSpec := productoffers.ByOneGetOneSpecification{Product: prod}
+	getOneFreeSpec := productoffers.ByOneGetOneSpecification{Product: prod}
 	discountSpec := productoffers.ProductDiscountSpecification{Product: prod}
 
 	//product spec
@@ -127,69 +127,36 @@ func main() {
 ```
 ### Helper Funtions
 ```sh
-// GetProductNameByCode gets the product name by the product code
 
-func GetProductNameByCode(productCode string) string {}
+- func GetProductNameByCode(productCode string) string {}
 
-// GetProductPriceByCode gets the product price by the product code
+- func GetProductPriceByCode(productCode string) float64 {}
 
-func GetProductPriceByCode(productCode string) float64 {}
+- func GetProductBonusQuanityByCode(productCode string) uint {}
 
-// GetProductionBonusQuantityByCode get the additional bonus quantity added to product
+- func GetTotalQuantitySoldProducts(product []models.Product) (uint, error) {}
 
-func GetProductBonusQuanityByCode(productCode string) uint {}
+- func GetTotalPriceOfProduct(product []models.Product) (float64, error) {}
 
-
-// GetTotalQuantitySoldProducts gets the total product sold
-
-func GetTotalQuantitySoldProducts(product []models.Product) (uint, error) {}
-
-// GetTotalPriceOfProduct gets the total price of product sold
-
-func GetTotalPriceOfProduct(product []models.Product) (float64, error) {}
 ```
 
 ### Methods
 ```sh
-// product type specification
 
-type ByOneGetOneSpecification struct {
-	Product []models.Product
-}
+- func (b *ByOneGetOneSpecification) IsSatisfied(productes *models.Product) bool {}
 
-// get one product is satisfied
+- func (d *ProductDiscountSpecification) IsSatisfied(productes *models.Product) bool {}
 
-func (b *ByOneGetOneSpecification) IsSatisfied(productes *models.Product) bool {}
-
-
-// product discount specification
-
-type ProductDiscountSpecification struct {
-	Product []models.Product
-}
-
-// discount on product is satisfied
-
-func (d *ProductDiscountSpecification) IsSatisfied(productes *models.Product) bool {}
-
-// CheckSpecifications checks if product matches the spec, if yes it implements the specification else returns the real price
-
-func (s *SpecificationSettings) CheckSpecifications(product []models.Product, spec models.OfferSpecification) []models.Product {}
+- func (s *SpecificationSettings) CheckSpecifications(product []models.Product, spec models.OfferSpecification) []models.Product {}
 
 ```
 
 
 ### Functions
 ```sh
+- func BuyOneGetOneFree(prodQuantity uint, prodCode string, prodPrice float64) models.Product {}
 
-// BuyOneGetOneFree takes in a product code, quantity and price and checks if product has a special offer
-
-func BuyOneGetOneFree(prodQuantity uint, prodCode string, prodPrice float64) models.Product {}
-
-
-// DiscountOnAProduct takes in a product code, quantity and price and checks if product has a discount offer
-
-func DiscountOnAProduct(prodQuantity uint, prodCode string, prodPrice float64) models.Product {}
+- func DiscountOnAProduct(prodQuantity uint, prodCode string, prodPrice float64) models.Product {}
 
 ```
 
